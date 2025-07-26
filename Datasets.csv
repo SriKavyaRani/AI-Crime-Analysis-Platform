@@ -1,0 +1,7 @@
+Enter FID,Enter url,Enter length_url,Enter length_hostname,Enter Source_IP,Enter Destination_IP,Enter Destination_Port,Select Source_Port,PREDICT CRIME TYPE DETECTION 
+10.42.0.42-66.198.178.91-57417-443-6,https://www.missfiga.com/,25,16,10.42.0.211,41106,172.217.3.106,443,Hacking
+10.42.0.211-52.84.143.74-51243-80-6,http://sophie-world.com/games/port-and-starboard,48,16,10.42.0.151,34088,172.217.12.206,443,Social Engineering
+172.217.10.78-10.42.0.151-443-57693-6,http://www.ktplasmachinery.com/cs/,34,23,10.42.0.211,47447,172.217.6.202,443,Social Engineering
+172.217.10.74-10.42.0.211-443-33776-6,http://www.game.co.uk/en/games/nintendo-switch/nintendo-switch/,63,14,10.42.0.151,34789,173.194.175.188,5228,Misinformation
+172.217.3.97-10.42.0.42-443-40598-6,http://press-preview.weebly.com,31,24,172.217.10.42,443,10.42.0.42,56914,Autonomous weapon systems
+10.42.0.151-10.42.0.1-5128-53-17,http://www.inbioma.pe/rechnung-376440790464490488&amp;cgi3-viewkontakt-376440790464490488-007acctpagetype-376440790464490488=4674720-&amp;info@s-und-s-shop.de.html,163,14,91.190.219.146,443,10.42.0.151,54317,Social Engineering

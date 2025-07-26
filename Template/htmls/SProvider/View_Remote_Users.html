@@ -1,0 +1,138 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Lobster|Righteous|Fredoka+One" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #000000;
+        font-family: 'Righteous', cursive;
+    }
+
+    .container-fluid {
+        padding: 50px;
+    }
+
+    .container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+    }
+
+    #title {
+        font-family: 'Fredoka One', cursive;
+    }
+
+    .text-uppercase {
+        font-family: 'Righteous', cursive;
+        font-size: 20px;
+        color: #FF0000;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    input {
+        font-family: 'Russo One', sans-serif;
+        font-size: 15px;
+    }
+
+    .viewclients {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.15);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #FF0000;
+        color: yellow;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+
+    td {
+        background-color: #FFFFFF;
+        color: #000;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    td span.style1 {
+        color: #FF0000;
+    }
+
+    @media (max-width: 768px) {
+        th, td {
+            padding: 8px;
+            font-size: 12px;
+        }
+
+        .container {
+            padding: 25px;
+        }
+
+        .text-uppercase {
+            font-size: 18px;
+        }
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <form role="form" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <p class="text-uppercase">VIEW ALL REMOTE USERS !!!</p>
+                    <div class="viewclients">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>USER NAME</th>
+                                    <th>EMAIL</th>
+                                    <th>GENDER</th>
+                                    <th>ADDRESS</th>
+                                    <th>MOB NO</th>
+                                    <th>COUNTRY</th>
+                                    <th>STATE</th>
+                                    <th>CITY</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for o in objects %}
+                                <tr>
+                                    <td><span class="style1">{{ o.username }}</span></td>
+                                    <td><span class="style1">{{ o.email }}</span></td>
+                                    <td><span class="style1">{{ o.gender }}</span></td>
+                                    <td><span class="style1">{{ o.address }}</span></td>
+                                    <td><span class="style1">{{ o.phoneno }}</span></td>
+                                    <td><span class="style1">{{ o.country }}</span></td>
+                                    <td><span class="style1">{{ o.state }}</span></td>
+                                    <td><span class="style1">{{ o.city }}</span></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

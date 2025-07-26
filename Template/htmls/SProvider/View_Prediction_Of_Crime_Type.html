@@ -1,0 +1,139 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Lobster|Righteous|Fredoka+One" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #000000;
+        font-family: 'Righteous', cursive;
+    }
+
+    .container-fluid {
+        padding: 50px;
+    }
+
+    .container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+    }
+
+    .text-uppercase {
+        font-size: 20px;
+        color: #FF0000;
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Righteous', cursive;
+        margin-bottom: 20px;
+    }
+
+    .tweettext {
+        border: 2px solid yellowgreen;
+        max-width: 100%;
+        height: 450px;
+        overflow-y: auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: 'Fredoka One', cursive;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    th {
+        background-color: #FF0000;
+        color: #FFFF00;
+        font-weight: bold;
+        border: 1px solid #FF00FF;
+    }
+
+    td {
+        background-color: #FFFFFF;
+        color: red;
+        font-size: 18px;
+        font-family: fantasy;
+        border: 1px solid #FF00FF;
+    }
+
+    tr:hover td {
+        background-color: #f1f1f1;
+        color: #000000;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 25px;
+        }
+
+        th, td {
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        .tweettext {
+            height: auto;
+            overflow: auto;
+        }
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <form role="form" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <p class="text-uppercase">View Crime Prediction Type Details !!!</p>
+                    <hr>
+                    <div class="tweettext">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>FID</th>
+                                    <th>URL</th>
+                                    <th>Length URL</th>
+                                    <th>Hostname Length</th>
+                                    <th>Source IP</th>
+                                    <th>Source Port</th>
+                                    <th>Destination IP</th>
+                                    <th>Destination Port</th>
+                                    <th>Prediction</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for object in list_objects %}
+                                <tr>
+                                    <td>{{ object.FID }}</td>
+                                    <td>{{ object.url }}</td>
+                                    <td>{{ object.length_url }}</td>
+                                    <td>{{ object.length_hostname }}</td>
+                                    <td>{{ object.Source_IP }}</td>
+                                    <td>{{ object.Source_Port }}</td>
+                                    <td>{{ object.Destination_IP }}</td>
+                                    <td>{{ object.Destination_Port }}</td>
+                                    <td>{{ object.Prediction }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

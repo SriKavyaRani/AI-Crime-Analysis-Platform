@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Service Provider Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="icon" href="{% static 'images/icon.png' %}" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Righteous|Fredoka+One&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: url("{% static 'bg.jpg' %}") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Righteous', cursive;
+    }
+
+    .main-container {
+      max-width: 500px;
+      background-color: white;
+      padding: 40px;
+      margin: 60px auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 28px;
+      color: #FF0000;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .form-title {
+      color: #FF0000;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-secondary a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 id="title" class="text-center mt-5">Artificial Intelligence Crime</h2>
+    <p class="text-center subtitle">
+      An Overview of Malicious Use and Abuse of AI<br>
+      <small>AI typology, computer crime, security, social implications.</small>
+    </p>
+
+    <div class="main-container">
+      <form method="POST" role="form">
+        {% csrf_token %}
+        <div class="text-center mb-3">
+          <img src="{% static 'login.jpg' %}" width="100" alt="Login Icon">
+        </div>
+
+        <h4 class="form-title text-center">Login as Service Provider</h4>
+
+        <div class="form-group">
+          <input type="text" name="username" class="form-control" placeholder="User Name" required>
+        </div>
+
+        <div class="form-group">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+
+        <input type="submit" name="submit1" class="btn btn-primary" value="Login">
+
+        <button type="button" class="btn btn-secondary mt-3">
+          <a href="{% url 'login' %}">Switch to User Login</a>
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

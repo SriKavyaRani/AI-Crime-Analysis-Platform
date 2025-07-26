@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'coin-slider.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/soft-ui-design-system@1.0.1/assets/css/soft-design-system.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+    <!-- JS -->
+    <script src="{% static 'jquery-1.4.2.min.js' %}"></script>
+    <script src="{% static 'cufon-yui.js' %}"></script>
+    <script src="{% static 'cufon-aller.js' %}"></script>
+    <script src="{% static 'coin-slider.min.js' %}"></script>
+    <script src="{% static 'script.js' %}"></script>
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f7f7f7;
+        }
+        .login-container {
+            background: white;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .login-container h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .login-container input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .register-button {
+            margin-top: 15px;
+            display: block;
+            text-align: center;
+            color: #ff0000;
+            font-weight: bold;
+        }
+        .banner {
+            width: 100%;
+            height: auto;
+        }
+        .nav-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header_resize">
+            <h1 align="center" style="color:#ff0000; font-size: 26px; margin-top: 20px;">
+                Artificial Intelligence Crime: An Overview of Malicious Use and Abuse of AI
+            </h1>
+
+            <div class="nav-links">
+                <a href="{% url 'index' %}">Home</a> |
+                <a href="{% url 'login' %}">Remote User</a> |
+                <a href="{% url 'serviceproviderlogin' %}">Service Provider</a>
+            </div>
+
+            <img src="{% static 'Banner.jpg' %}" alt="Banner" class="banner" />
+        </div>
+
+        <div class="login-container">
+            <form method="POST">
+                {% csrf_token %}
+                <div align="center">
+                    <img src="{% static 'login.jpg' %}" width="120" alt="Login Icon">
+                    <h2>Login Using Your Account</h2>
+                </div>
+                <input type="text" name="username" placeholder="User Name" required />
+                <input type="password" name="password" placeholder="Password" required />
+                <input type="submit" name="submit1" value="Login" />
+                <a class="register-button" href="{% url 'Register1' %}">New user? Register here</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
